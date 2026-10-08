@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventaris Gudang Percetakan</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1>INVENTARIS GUDANG PERCETAKAN</h1>
+            <p>-------------------------------</p>
+        </div>
+
+        <div class="main">
+            <!-- KIRI: FORM TRANSAKSI -->
+            <div class="form-section">
+                <div class="card">
+                    <h3>FORM TRANSAKSI STOK</h3>
+                    
+                    <div class="input-group">
+                        <label>Pilih Barang</label>
+                        <select id="selectBarang" class="input-field">
+                            <option value="">-- Pilih Barang --</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Jenis Transaksi</label>
+                        <select id="jenisTransaksi" class="input-field">
+                            <option value="masuk">STOK MASUK (Pembelian / Tambah)</option>
+                            <option value="keluar">STOK KELUAR (Pengambilan / Kurang)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tipe Pengambilan</label>
+                        <select id="tipePengambilan" class="input-field">
+                            <option value="karyawan">Karyawan</option>
+                            <option value="konsumen">Konsumen</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Jumlah</label>
+                        <input type="number" id="jumlahInput" class="input-field" value="1" min="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Nama Pengambil</label>
+                        <input type="text" id="namaPengambil" class="input-field" placeholder="Nama karyawan / konsumen">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Keterangan</label>
+                        <textarea id="keterangan" class="input-field" rows="2" placeholder="Catatan tambahan..."></textarea>
+                    </div>
+
+                    <button id="btnProses" class="btn btn-primary">PROSES TRANSAKSI</button>
+
+                    <div id="messageBox" class="message-box">
+                        Sistem siap. Pilih barang dan isi form transaksi.
+                    </div>
+                </div>
+            </div>
+
+            <!-- KANAN: TABEL STOK -->
+            <div class="table-section">
+                <div class="card">
+                    <h3>DATA STOK BARANG</h3>
+                    <div class="table-wrapper">
+                        <table id="stockTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NAMA BARANG</th>
+                                    <th>HARGA</th>
+                                    <th>STOK AWAL</th>
+                                    <th>STOK MASUK</th>
+                                    <th>STOK KELUAR</th>
+                                    <th>STOK AKHIR</th>
+                                    <th>TOTAL NILAI</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelStok">
+                                <!-- Data dari JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 20px;">
+                    <h3>RIWAYAT TRANSAKSI</h3>
+                    <div class="table-wrapper">
+                        <table id="riwayatTable">
+                            <thead>
+                                <tr>
+                                    <th>TANGGAL</th>
+                                    <th>BARANG</th>
+                                    <th>JENIS</th>
+                                    <th>TIPE</th>
+                                    <th>JUMLAH</th>
+                                    <th>PENGAMBIL</th>
+                                    <th>KETERANGAN</th>
+                                    <th>STOK AKHIR</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelRiwayat">
+                                <tr><td colspan="8" style="text-align:center;">Belum ada transaksi</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="btnResetRiwayat" class="btn btn-small">HAPUS RIWAYAT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Inventaris Gudang Percetakan | Stok Masuk = Total penambahan | Stok Keluar = Total pengurangan | Stok Akhir = Stok Awal + Masuk - Keluar</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
